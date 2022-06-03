@@ -1,0 +1,4 @@
+{"latitude": 48.1688, "longitude": 11.25, "item": "ambulance", "speed": "10km/h", "altitude": "3m", "id": 3000, "message_type": "position_data"}
+{"latitude": 48.17, "longitude": 11.24755, "item": "uav", "speed": "100km/h", "altitude": "300m", "id": 3020, "message_type": "position_data"}
+{"latitude": 48.16999, "longitude": 11.24876, "item": "ugv", "speed": "8km/h", "altitude": "12m", "id": 3120, "message_type": "position_data"}
+{"latitude": 48.1706, "longitude": 11.2479, "item": "cod", "speed": "16km/h", "altitude": "5m", "id": 9000, "message_type": "position_data"}
