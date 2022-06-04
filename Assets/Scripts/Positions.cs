@@ -16,6 +16,7 @@ public class Positions : MonoBehaviour
     public Text text;
     public delegate void ReceiveAction(string message);
     public static event ReceiveAction OnReceived;
+    public static event ReceiveAction OnRoutesReceived;
     private ClientWebSocket webSocket = null;
     private ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
 
@@ -107,11 +108,16 @@ public class Positions : MonoBehaviour
                     using (var reader = new StreamReader(ms, Encoding.UTF8))
                     {
                         string message = reader.ReadToEnd();
-                        Debug.Log(message);
+                        // Debug.Log(message);
 
                         if (message.Contains("New Session with id")){
                             continue;
                         }
+                        else if(message.Contains("routes")){
+                            OnRoutesReceived(message);
+                            continue;
+                        }
+
                         text.text = message;
 
                         // PositionDataType data = JsonUtility.FromJson<PositionDataType>(message);

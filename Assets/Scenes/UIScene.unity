@@ -396,7 +396,7 @@ RectTransform:
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_Children: []
   m_Father: {fileID: 1071854162}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -674,9 +674,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2101302028}
   - {fileID: 862744289}
   - {fileID: 1831675067}
+  - {fileID: 2101302028}
   - {fileID: 341916954}
   m_Father: {fileID: 1565977996}
   m_RootOrder: 0
@@ -848,7 +848,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1071854162}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -926,7 +926,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 17276d76a8aa29845af33a9dadf9a299,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17276d76a8aa29845af33a9dadf9a299,
         type: 3}
@@ -1759,3 +1759,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 341916955}
   url: ws://195.134.66.232:6999/broker
+--- !u!114 &2101302032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101302029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcbd37b48cdd82419699fc8fc05efd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderPrefab: {fileID: 4208597537230915427, guid: 1b81caccdda586b428cf52a2fdf111e7,
+    type: 3}
+  line: {fileID: 1223240453411939107, guid: b44876a5de778b64ba3f333906c0de1f, type: 3}
