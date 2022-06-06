@@ -41,6 +41,8 @@ public class Routes : MonoBehaviour
 
     public GameObject borderPrefab;
     public GameObject linePrefab;
+    // public GameObject lineRend;
+    public Material newMaterialRef;
 
     private RectTransform ParentCanvas;
     private GameObject InfoBox;
@@ -59,44 +61,50 @@ public class Routes : MonoBehaviour
 
     void CreateRoutes(string jsonMessage){
         RoutesClass routesClass = JsonUtility.FromJson<RoutesClass>(jsonMessage);
-        // Location location;
+        Location location = new Location();
         Debug.Log(routesClass);
         foreach(Route route in routesClass.routes){
             Debug.Log(route.name);
-            // location.lon = 0.0f;
+            location.lon = 0.0f;
+            GameObject previousObj = null;
             foreach(Location loc in route.vertices){
                 //loc.latitude, loc.longitude -> waypoint
-                Debug.Log("here");
-                GameObject pinButton = (GameObject)Instantiate(borderPrefab);
+                GameObject border = (GameObject)Instantiate(borderPrefab);
 
                 double xPlacement = (double)(0.7f *(loc.lat - minLat))/(double)latSpan;
                 // // 450 is "size" of map left to write
                 double yPlacement = (double)(0.59f *(loc.lon - minLon))/(double)lonSpan;
                 // // 140 is "size" of map left to write
                 
-                pinButton.transform.SetParent(ParentCanvas, false);
-                pinButton.GetComponent<RectTransform>().anchoredPosition = new Vector3((float)xPlacement - 0.33f, (float)yPlacement - 0.1f, 0);
+                border.transform.SetParent(ParentCanvas, false);
+                border.GetComponent<RectTransform>().anchoredPosition = new Vector3((float)xPlacement - 0.33f, (float)yPlacement - 0.1f, 0);
 
-                // if(!(location.longitude == 0.0f)){
-                //     GameObject line = (GameObject)Instantiate(line);
-                //     line.GetComponent<RectTransform>().height = Math.Abs(pinButton.GetComponent<RectTransform>().anchoredPosition.y - location.longitude);
-                //     location.longitude = pinButton.GetComponent<RectTransform>().anchoredPosition.y
+                if(previousObj!=null){
+                    Debug.Log("here");
+                    DrawLine(previousObj, border);
+                }
 
-                //     // pinButton.GetComponent<RectTransform>().anchoredPosition
-
-                //     loc = location;
-
-                // }
-
-
+                previousObj = border;
             }
-            // each route being created
-            // instatiate line and change height!
+            previousObj = null;
         }
 
-        // all area waypoints drawn out
 
 
     }
 
+    private void DrawLine(GameObject previousObj, GameObject border){
+        var go = new GameObject();
+        go.transform.localScale = new Vector3(0.00001f, 0.00001f, 0.00001f);
+
+        go.transform.SetParent(ParentCanvas, false);
+
+        var lr = go.AddComponent<LineRenderer>();
+        lr.GetComponent<Renderer>().material = newMaterialRef;
+ 
+        lr.SetPosition(0, border.transform.position);
+        lr.SetPosition(1, previousObj.transform.position);
+        lr.SetWidth(0.002f, 0.002f);
+
+    }
 }

@@ -182,7 +182,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1071854162}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -676,8 +676,8 @@ RectTransform:
   m_Children:
   - {fileID: 862744289}
   - {fileID: 1831675067}
-  - {fileID: 2101302028}
   - {fileID: 341916954}
+  - {fileID: 2101302028}
   m_Father: {fileID: 1565977996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -926,7 +926,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 17276d76a8aa29845af33a9dadf9a299,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17276d76a8aa29845af33a9dadf9a299,
         type: 3}
@@ -1773,4 +1773,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderPrefab: {fileID: 4208597537230915427, guid: 1b81caccdda586b428cf52a2fdf111e7,
     type: 3}
-  line: {fileID: 1223240453411939107, guid: b44876a5de778b64ba3f333906c0de1f, type: 3}
+  linePrefab: {fileID: 653429857553491678, guid: b44876a5de778b64ba3f333906c0de1f,
+    type: 3}
+  newMaterialRef: {fileID: 2100000, guid: 54322026142964d4084eda2478d9b1a2, type: 2}
