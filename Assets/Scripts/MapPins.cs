@@ -83,8 +83,16 @@ public class MapPins : MonoBehaviour
         string altitude = retrieveAltitude(jsonMessage);
         string id = retrieveId(jsonMessage);
 
+        Debug.Log(latitude);
+        Debug.Log(longitude);
+        Debug.Log(item);
+        Debug.Log(speed);
+        Debug.Log(altitude);
+        Debug.Log(id);
+
         // if telemtry is outside of the area in map -> discard message
-        if(!(latitude >= 44.72836 && latitude <= 44.72256 && longitude >= 26.17464 && longitude <= 26.16191)){
+        if(!(latitude >= 44.7225600 && latitude <= 44.7283600 && longitude >= 26.16191 && longitude <= 26.17464)){
+            Debug.Log("out of bounds");
             return;
         }
 
@@ -92,14 +100,18 @@ public class MapPins : MonoBehaviour
 
         // if item is already in map -> continue moving
         if(!GameObject.Find("Pin"+id) || !detections.Contains(item+id)){
+            Debug.Log("new item");
+
             pinButton = (GameObject)Instantiate(itemLocated(item));
             detections += item + id;
         }
         // else -> new item placed in map
         else{
+            Debug.Log("item located in map");
             pinButton = GameObject.Find("Pin"+id);
         }
 
+        Debug.Log("message ok");
         double xPlacement = (double)(0.7f *(latitude - minLat))/(double)latSpan;
         // // 450 is "size" of map left to write
         double yPlacement = (double)(0.59f *(longitude - minLon))/(double)lonSpan;
@@ -109,6 +121,7 @@ public class MapPins : MonoBehaviour
         
         pinButton.transform.SetParent(ParentCanvas, false);
         pinButton.GetComponent<RectTransform>().anchoredPosition = new Vector3((float)xPlacement - 0.33f, (float)yPlacement - 0.1f, 0);
+        Debug.Log(pinButton.GetComponent<RectTransform>().anchoredPosition);
         
         pinButton.GetComponent<Text>().text = "Latitude: " + latitude 
                     + Environment.NewLine + "Longitude: " + longitude + Environment.NewLine + "Item: " + item + Environment.NewLine
