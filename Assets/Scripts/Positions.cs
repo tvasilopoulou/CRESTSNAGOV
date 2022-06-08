@@ -108,7 +108,7 @@ public class Positions : MonoBehaviour
                     using (var reader = new StreamReader(ms, Encoding.UTF8))
                     {
                         string message = reader.ReadToEnd();
-                        // Debug.Log(message);
+                        Debug.Log(message);
 
                         if (message.Contains("New Session with id")){
                             continue;
