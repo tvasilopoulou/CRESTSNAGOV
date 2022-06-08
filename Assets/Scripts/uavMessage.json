@@ -1,0 +1,54 @@
+{
+	"header": {
+		"topicName": "TOP09_02_UAV_TELEMETRY",
+		"topicVer1": 1,
+		"topicVer2": 1,
+		"msgId": "Message Id",
+		"sender": "Copting GCS1",
+		"sentUtc": "2020-07-30T12:45:35+0000",
+		"status": "System",
+		"msgType": "Data",
+		"source": "CoptingUAV_1",
+		"scope": "Private",
+		"caseId": "d5f97fe2-ab74-4ffd-8036-a3709f5953ae"
+	},
+	"body": {
+		"vehicle_id": "CoptingUAV_1",
+		"mission_id": 1234567,
+		"autopilot": true,
+		"vehicle_status": "STANDBY",
+		"speed": 4.8,
+		"course": 6.1462063492063495,
+		"heading": 0.08012968720289278,
+		"attitude": {
+			"roll": 0.123456,
+			"pitch": 0.123456,
+			"yaw": 0.123456
+		},
+		"position": {
+			"latitude": 44.726155107821754,
+			"longitude": 26.171822150947893,
+			"altitude": 5
+		},
+		"velocity": {
+			"vx": 1.23456,
+			"vy": 1.23456,
+			"vz": 1.23456
+		},
+		"acceleration": {
+			"ax": -2.0790098,
+			"ay": 0.01961330000000118,
+			"az": 9.6497436
+		},
+		"attitudeVelocity": {
+			"roll": -0.0062936339527368546,
+			"pitch": -0.006686002016067505,
+			"yaw": -0.004201113246381283
+		},
+		"home_position": {
+			"latitude": 44.726155107821754,
+			"longitude": 26.171822150947893,
+			"altitude": 0
+		}
+	}
+}

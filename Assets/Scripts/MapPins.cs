@@ -130,7 +130,8 @@ public class MapPins : MonoBehaviour
 
         // add control on whether there are multiple buttons in one screen
         // add functionality when it's idle for a long time to disappear
-        if (InfoBox.GetComponent<TextMeshProUGUI>().text != "") InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
+        if (InfoBox.GetComponent<TextMeshProUGUI>().text.Contains("ID " + id)) 
+            InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
     }
 
     private double retrieveLat(string jsonMessage){
