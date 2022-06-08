@@ -1775,4 +1775,4 @@ MonoBehaviour:
     type: 3}
   linePrefab: {fileID: 653429857553491678, guid: b44876a5de778b64ba3f333906c0de1f,
     type: 3}
-  newMaterialRef: {fileID: 2100000, guid: 54322026142964d4084eda2478d9b1a2, type: 2}
+  newMaterialRef: {fileID: 2100000, guid: 99d97fa99f9b59a499ebcc4c863269f9, type: 2}
