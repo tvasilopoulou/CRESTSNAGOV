@@ -40,7 +40,7 @@ public class MapPins : MonoBehaviour
     private double minLat = 44.72256;
     private double minLon = 26.16191;
     private string detections = "";
-
+    private bool newItem = true;
 
     class Telemetry{
         public double latitude;
@@ -99,16 +99,17 @@ public class MapPins : MonoBehaviour
         GameObject pinButton;
 
         // if item is already in map -> continue moving
-        if(!GameObject.Find("Pin"+id) || !detections.Contains(item+id)){
+        if(!GameObject.Find("Pin"+ item + id) || !detections.Contains(item+id)){
             Debug.Log("new item");
-
+            newItem = true;
             pinButton = (GameObject)Instantiate(itemLocated(item));
             detections += item + id;
         }
         // else -> new item placed in map
         else{
             Debug.Log("item located in map");
-            pinButton = GameObject.Find("Pin"+id);
+            newItem = false;
+            pinButton = GameObject.Find("Pin"+ item + id);
         }
 
         Debug.Log("message ok");
@@ -117,7 +118,7 @@ public class MapPins : MonoBehaviour
         double yPlacement = (double)(0.59f *(longitude - minLon))/(double)lonSpan;
         // // 140 is "size" of map left to write
 
-        pinButton.name = "Pin" + id;
+        pinButton.name = "Pin" + item + id;
         
         pinButton.transform.SetParent(ParentCanvas, false);
         pinButton.GetComponent<RectTransform>().anchoredPosition = new Vector3((float)xPlacement - 0.33f, (float)yPlacement - 0.1f, 0);
@@ -128,10 +129,12 @@ public class MapPins : MonoBehaviour
                     + "Speed: " + speed + Environment.NewLine + "Altitude: " + altitude + Environment.NewLine + "ID: " + id;
         
 
+        if(newItem == false) InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
+
         // add control on whether there are multiple buttons in one screen
         // add functionality when it's idle for a long time to disappear
-        if (InfoBox.GetComponent<TextMeshProUGUI>().text.Contains("ID " + id) && InfoBox.GetComponent<TextMeshProUGUI>().text.Contains("Item: " + item)) 
-            InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
+        // if (InfoBox.GetComponent<TextMeshProUGUI>().text.Contains("ID " + id) && InfoBox.GetComponent<TextMeshProUGUI>().text.Contains("Item: " + item)) 
+        //     InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
     }
 
     private double retrieveLat(string jsonMessage){
