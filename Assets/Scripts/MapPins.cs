@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Net.WebSockets;
 using System.Collections.Generic;
 using UnityEngine;
@@ -127,15 +127,24 @@ public class MapPins : MonoBehaviour
         pinButton.GetComponent<RectTransform>().anchoredPosition = new Vector3((float)xPlacement - 0.33f, (float)yPlacement - 0.1f, 0);
         Debug.Log(pinButton.GetComponent<RectTransform>().anchoredPosition);
         
-        pinButton.GetComponent<Text>().text = "Latitude: " + latitude 
-                    + Environment.NewLine + "Longitude: " + longitude + Environment.NewLine + "Item: " + item + Environment.NewLine
-                    + "Speed: " + speed + Environment.NewLine + "Altitude: " + altitude + Environment.NewLine + "ID: " + id;
+        // pinButton.GetComponent<Text>().text = "Latitude: " + latitude 
+        //             + Environment.NewLine + "Longitude: " + longitude + Environment.NewLine + "Item: " + item + Environment.NewLine
+        //             + "Speed: " + speed + " km/h" + Environment.NewLine + "Altitude: " + altitude + " m" + Environment.NewLine + "ID: " + id;
+
+        pinButton.GetComponent<Text>().text =    
+                    " ID: " + id + ", Item: " + item + Environment.NewLine +
+                    "Speed: " + speed + " km/h" + Environment.NewLine +
+                    "Altitude: " + altitude + " m" + Environment.NewLine +
+                    "Latitude: " + latitude + Environment.NewLine + 
+                    "Longitude: " + longitude;
+
         
         //this is not working
         //if(newItem == false) InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
 
         //  TODO: must be reomoved, not a good solution
         if (who_is_clicked.text.Equals(pinButton.name) ){
+            Debug.Log("--------------------------------------------------------------------");
             InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
         }
 

@@ -23,6 +23,7 @@ public class OnClick : MonoBehaviour
     public void AddOnClick (){
         InfoBox = GameObject.Find("InfoBox");
         ToggleTracker = GameObject.Find("ToggleTracker");
+        who_is_clicked = GameObject.Find("who_is_clicked").GetComponent<Text>();
 
         if(!ToggleTracker.GetComponent<Text>().text.Contains(pinButton.name) || ToggleTracker.GetComponent<Text>().text == ""){
             pinName = pinButton.name;
