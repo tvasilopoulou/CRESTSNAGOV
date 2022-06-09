@@ -13,6 +13,10 @@ public class OnClick : MonoBehaviour
     private GameObject InfoBox;
     private GameObject ToggleTracker;
 
+    //TODO: THIS IS TO BE REMOVED!!!!
+    public Text who_is_clicked;
+    
+
     private string pinName = "";
 
 
@@ -24,7 +28,7 @@ public class OnClick : MonoBehaviour
             pinName = pinButton.name;
             ToggleTracker.GetComponent<Text>().text = pinName;
             InfoBox.GetComponent<TextMeshProUGUI>().text = pinButton.GetComponent<Text>().text;
-            
+            who_is_clicked.text = pinName;
         }
         else{
             pinName = "";
